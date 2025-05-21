@@ -18,19 +18,20 @@ import DaggerRoutes from "./routes/dagger.route.js";
     })
 
     const port = process.env.PORT || 8080
-
+    app.use(express.json()); 
     app.use("/api/products", ProductRoutes);
     app.use("/api/daggers", DaggerRoutes);
 
-console.log(process.env.MONGO_URI);
-
+    console.log(process.env.MONGO_URI);
     console.log(port)
+    
     app.listen(port, (err, res) => {
+        connectDB()
         if (err) {
             console.log(err)
             return res.status(500).send(err.message)
         } else {
-          connectDB()
+          
             console.log('[INFO] Server Running on port:', port)
         }
     })
