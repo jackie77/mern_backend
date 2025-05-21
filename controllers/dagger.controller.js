@@ -4,9 +4,11 @@ import mongoose from "mongoose";
 export const getDaggers = async (req, res) => {
   console.log("getDaggers called")
   try {
+    console.log("Try block, await Dagger.find ")
     const daggers = await Dagger.find({});
     res.status(200).json({ success: true, data: daggers });
   } catch (error) {
+    console.error(error)
     console.error("error fetching dagger", error.message);
     res.status(500).json({ success: false, message: error.message });
   }

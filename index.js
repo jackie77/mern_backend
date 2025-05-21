@@ -13,13 +13,14 @@ import DaggerRoutes from "./routes/dagger.route.js";
     })
 
     app.get('/ping', (req, res) => { 
+        console.log("getPING")
         res.send('pong 🏓')
     })
 
     const port = process.env.PORT || 8080
 
     app.use("/api/products", ProductRoutes);
-app.use("/api/daggers", DaggerRoutes);
+    app.use("/api/daggers", DaggerRoutes);
 
 console.log(process.env.MONGO_URI);
 
