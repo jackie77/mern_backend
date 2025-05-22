@@ -3,8 +3,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import ProductRoutes from "./routes/product.route.js";
 import DaggerRoutes from "./routes/dagger.route.js";
-
-var cors = require("cors");
+import cors from "cors"
 
 const app = express();
 app.use(cors());
